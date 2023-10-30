@@ -25,6 +25,19 @@ The project includes the following applications:
     Calendar: A calendar that can display the current date and time, as well as events and reminders. The calendar can also calculate the number of days between two dates.
     Stop Watch: A stop watch that can measure the elapsed time in seconds, minutes, and hours. The stop watch can also pause, resume, and reset.
 
+Responsibilities
+
+The Blue Print Bandits team members have divided the work as follows:
+
+    Sam and Snowyru will work on the Scientific Calculator and the Login Page.
+    Chrinovic and Mandisa will work on the Calendar.
+    Carnifex will work on the Stop Watch.
+    Marcos will work on the Currency Converter.
+    
+We will communicate and collaborate with each other using GitHub issues, pull requests, and comments. We will also have regular meetings to discuss our progress and challenges.
+
+Please note that this division of work is subject to change depending on the availability and preferences of the team members. We will update this section accordingly if there are any changes.
+
 Contributions
 
 We welcome contributions from other students who want to improve or add new features to our project. Please follow these steps to contribute:
