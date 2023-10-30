@@ -1,6 +1,6 @@
 # Java Revision Project
 
-This is a Java revision project by the Blue Print Bandits team. The project consists of four applications: a login page, a scientific calculator, a currency converter, and a calendar. The project is intended to help us practice our Java skills and prepare for the final exam.
+This is a Java revision project by the BluePrint Bandits team. The project consists of four applications: a login page, a scientific calculator, a currency converter, and a calendar. The project is intended to help us practice our Java skills and prepare for the final exam.
 ##Requirements
 
     Java 11 or higher
@@ -27,7 +27,7 @@ Applications
 
 ## Responsibilities
 
-The Blue Print Bandits team members have divided the work as follows:
+The BluePrint Bandits team members have divided the work as follows:
 
     Sam and Snowyru will work on the Scientific Calculator and the Login Page.
     Chrinovic and Mandisa will work on the Calendar.
