@@ -33,11 +33,10 @@ The Blue Print Bandits team members have divided the work as follows:
     Chrinovic and Mandisa will work on the Calendar.
     Carnifex will work on the Stop Watch.
     Marcos will work on the Currency Converter.
-    
+
 We will communicate and collaborate with each other using GitHub issues, pull requests, and comments. We will also have regular meetings to discuss our progress and challenges.
 
 Please note that this division of work is subject to change depending on the availability and preferences of the team members. We will update this section accordingly if there are any changes.
-
 Contributions
 
 We welcome contributions from other students who want to improve or add new features to our project. Please follow these steps to contribute:
