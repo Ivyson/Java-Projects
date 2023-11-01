@@ -4,6 +4,14 @@
  */
 package javarevisionproject;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
+
 /**
  *
  * @author Sam
@@ -38,6 +46,7 @@ public class LogInPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLogInButt = new javax.swing.JButton();
         jExitButt = new javax.swing.JButton();
+        jWrongPass = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -108,12 +117,16 @@ public class LogInPage extends javax.swing.JFrame {
 
         jCheckBox1.setBackground(new java.awt.Color(204, 204, 204));
         jCheckBox1.setText("Remember me");
+        jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 255));
         jLabel4.setText("Forgot your credentials? Click Here");
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLogInButt.setBackground(new java.awt.Color(204, 204, 204));
         jLogInButt.setText("Log In");
+        jLogInButt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLogInButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jLogInButtActionPerformed(evt);
@@ -122,6 +135,7 @@ public class LogInPage extends javax.swing.JFrame {
 
         jExitButt.setBackground(new java.awt.Color(204, 204, 204));
         jExitButt.setText("Exit");
+        jExitButt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jExitButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jExitButtActionPerformed(evt);
@@ -141,10 +155,13 @@ public class LogInPage extends javax.swing.JFrame {
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addComponent(jCheckBox1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(54, 54, 54))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jWrongPass, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jCheckBox1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(54, 54, 54))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(218, 218, 218)
                         .addComponent(jLogInButt)
@@ -168,7 +185,9 @@ public class LogInPage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox1)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jWrongPass, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLogInButt)
                     .addComponent(jExitButt))
@@ -206,7 +225,30 @@ public class LogInPage extends javax.swing.JFrame {
 
     private void jLogInButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLogInButtActionPerformed
         // TODO add your handling code here:
-       // if(jUsername.getText().equals("") || jUsername.getText().equals(" ") || jUsername.getText().equals())
+    String Password = jPassword.getText();
+            System.out.println(jPassword.getText() + "\n" +jUsername.getText());
+      if(jUsername.getText().equals("") || jUsername.getText().equals(" ") || jPassword.getPassword().equals("") || jPassword.getPassword().equals(" "))
+      {
+          JOptionPane.showMessageDialog(null, "One of the fields are empty!","Notification",JOptionPane.ERROR_MESSAGE);
+      }
+      else if(jUsername.getText().equals("admin") && Password.equals("admin123"))
+      {
+          System.out.println("Hi");
+      }
+      else{
+         jWrongPass.setForeground(Color.red);
+    jWrongPass.setText("Wrong Information provided");
+
+    Timer timer = new Timer(1000, new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent evt) {
+        jWrongPass.setText("");
+    }
+        });
+
+    timer.setRepeats(false);
+    timer.start();
+      }
     }//GEN-LAST:event_jLogInButtActionPerformed
 
     /**
@@ -257,5 +299,6 @@ public class LogInPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JTextField jUsername;
+    private javax.swing.JLabel jWrongPass;
     // End of variables declaration//GEN-END:variables
 }
