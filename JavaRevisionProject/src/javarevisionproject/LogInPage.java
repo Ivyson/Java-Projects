@@ -118,6 +118,7 @@ public class LogInPage extends javax.swing.JFrame {
         jCheckBox1.setBackground(new java.awt.Color(204, 204, 204));
         jCheckBox1.setText("Remember me");
         jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jCheckBox1.setFocusPainted(false);
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 255));
@@ -127,6 +128,7 @@ public class LogInPage extends javax.swing.JFrame {
         jLogInButt.setBackground(new java.awt.Color(204, 204, 204));
         jLogInButt.setText("Log In");
         jLogInButt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLogInButt.setFocusPainted(false);
         jLogInButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jLogInButtActionPerformed(evt);
@@ -136,6 +138,7 @@ public class LogInPage extends javax.swing.JFrame {
         jExitButt.setBackground(new java.awt.Color(204, 204, 204));
         jExitButt.setText("Exit");
         jExitButt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jExitButt.setFocusPainted(false);
         jExitButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jExitButtActionPerformed(evt);
@@ -234,6 +237,7 @@ public class LogInPage extends javax.swing.JFrame {
       else if(jUsername.getText().equals("admin") && Password.equals("admin123"))
       {
           System.out.println("Hi");
+          
       }
       else{
          jWrongPass.setForeground(Color.red);
