@@ -827,7 +827,7 @@ public class GradeCalculator extends javax.swing.JFrame {
 
 // Retrieve the input expression
 String expression = jTextArea1.getText();
-//char[] statement;
+char[] statement;
 statement = expression.toCharArray();
 char[] operator = {'+','-','*','/'};
 char[] operand = new char[expression.length()];
