@@ -4,6 +4,8 @@
  */
 package javarevisionproject;
 
+//import javax.security.auth.spi.LoginModule;
+
 /**
  *
  * @author ldxt460s
@@ -14,7 +16,9 @@ public class JavaRevisionProject {
          * @param args the command line arguments
          */
         public static void main(String[] args) {
-                // TODO code application logic here
+            LogInPage loginpage = new LogInPage();
+            loginpage.setVisible(true);
+                
         }
         
 }
