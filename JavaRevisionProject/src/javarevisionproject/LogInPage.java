@@ -237,7 +237,10 @@ public class LogInPage extends javax.swing.JFrame {
       else if(jUsername.getText().equals("admin") && Password.equals("admin123"))
       {
           System.out.println("Hi");
-          
+          dispose();
+          LoadingPage loadingpage = new LoadingPage();
+          loadingpage.setVisible(true);
+          loadingpage.startLoading();
       }
       else{
          jWrongPass.setForeground(Color.red);

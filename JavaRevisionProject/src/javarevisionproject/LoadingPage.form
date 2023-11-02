@@ -118,6 +118,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLoading">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Loading"/>
               </Properties>
               <AuxValues>
@@ -126,6 +129,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jStatus">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Status of Check up"/>
               </Properties>
               <AuxValues>
@@ -134,6 +140,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLoadingPercentage">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Loading Percentage"/>
               </Properties>
               <AuxValues>

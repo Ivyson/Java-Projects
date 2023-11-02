@@ -44,10 +44,13 @@ public class LoadingPage extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 255));
 
+        jLoading.setForeground(new java.awt.Color(255, 255, 255));
         jLoading.setText("Loading");
 
+        jStatus.setForeground(new java.awt.Color(255, 255, 255));
         jStatus.setText("Status of Check up");
 
+        jLoadingPercentage.setForeground(new java.awt.Color(255, 255, 255));
         jLoadingPercentage.setText("Loading Percentage");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -148,58 +151,64 @@ public class LoadingPage extends javax.swing.JFrame {
             private ActionListener evt;
             public void run() {
                 new LoadingPage().setVisible(true);
-
-int delay = 1000; //milliseconds
-ActionListener taskPerformer = new ActionListener() {
-    int i = 0;
-    public void actionPerformed(ActionEvent evt) {
-        if (i <= 100) {
-            jLoadingPercentage.setText(Integer.toString(i)+"%");
-            jProgressBar.setValue(i);
-            if(i < 10)
-            {
-                jStatus.setText("Authorising the your credentials...");
-            }
-            else if(i == 20)
-            {
-                 jStatus.setText("Fetching Data from the Database...");
-            }
-            else if (i == 40)
-            {
-                 jStatus.setText("Retrieving information ....");
-            }
-            else if( i == 50)
-            {
-                 jStatus.setText("Hang in there, Your data is on the way...");
-            }
-            else if( i == 70)
-            {
-                 jStatus.setText("Processing Your Request...");
-            }
-            else if (i == 80)
-            {
-                 jStatus.setText("Getting things ready for you...");
-            }
-            else if(i == 100)
-            {   
-                jStatus.setText("You will be redirected to a new page now...");
-                ((Timer)evt.getSource()).stop(); // stop the timer
-                //I will add the Menu page
-                 
-            }
-            
-        } else {
-           ((Timer)evt.getSource()).stop(); // stop the timer
-           new LoadingPage().setVisible(true);
-        }
-        i++;
-    }
-};
-new Timer(delay, taskPerformer).start();
-
             }
         });
     }
+
+    public void startLoading(){
+
+                int delay = 1000; //milliseconds
+                ActionListener taskPerformer = new ActionListener() {
+                    int i = 0;
+                    public void actionPerformed(ActionEvent evt) {
+                        if (i <= 100) {
+                            jLoadingPercentage.setText(Integer.toString(i)+"%");
+                            jProgressBar.setValue(i);
+                            if(i < 10)
+                            {
+                                jStatus.setText("Authorising the your credentials...");
+                            }
+                            else if(i == 20)
+                            {
+                                jStatus.setText("Fetching Data from the Database...");
+                            }
+                            else if (i == 40)
+                            {
+                                jStatus.setText("Retrieving information ....");
+                            }
+                            else if( i == 50)
+                            {
+                                jStatus.setText("Hang in there, Your data is on the way...");
+                            }
+                            else if( i == 70)
+                            {
+                                jStatus.setText("Processing Your Request...");
+                            }
+                            else if (i == 80)
+                            {
+                                jStatus.setText("Getting things ready for you...");
+                            }
+                            else if(i == 100)
+                            {
+                                jStatus.setText("You will be redirected to a new page now...");
+                                ((Timer)evt.getSource()).stop(); // stop the timer
+                                //I will add the Menu page
+                                
+                            }
+                            
+                        } else {
+                            ((Timer)evt.getSource()).stop(); // stop the timer
+                            new LoadingPage().setVisible(true);
+                        }
+                        i++;
+                    }
+                };
+    
+                new Timer(delay, taskPerformer).start();
+                System.out.println("This works?");
+    }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JLabel jLoading;

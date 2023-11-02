@@ -18,7 +18,6 @@ public class JavaRevisionProject {
         public static void main(String[] args) {
             LogInPage loginpage = new LogInPage();
             loginpage.setVisible(true);
-                
         }
         
 }
