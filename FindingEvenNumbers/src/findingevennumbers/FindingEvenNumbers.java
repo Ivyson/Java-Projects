@@ -8,22 +8,16 @@ package findingevennumbers;
  *
  * @author 223146145
  */
+import javax.swing.*;
 public class FindingEvenNumbers {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        //int num1 = 40;
-        for(int i = 1; i <= 40; i++)
-        {
-            
-            if(i % 2 ==0)
-            {
-               System.out.printf("%d\t",i);
-            }
-        }
+        String s1 = "Hello";
+String s2 = new String("Hello");
+System.out.println(s1 == s2);
     }
     
 }
