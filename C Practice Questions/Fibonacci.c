@@ -14,6 +14,5 @@ int main()
         first_num = last_number;
         last_number = second_number;
         printf("%d\t",second_number);
-        
     }
 }
