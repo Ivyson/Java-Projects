@@ -1,4 +1,6 @@
 import javax.swing.JOptionPane;
+import java.util.*; //Import the scanner Library just in case i will need to use a scanner instead of casting the value from a JOptionPane
+//Use math library that has maths methods in it to perform complex maths operations like complex numbers and all those things
 
 public class PracticeJava {
     double result1;
@@ -112,6 +114,13 @@ public class PracticeJava {
         }
         System.out.println("The sum of all the terms in this series is " + sum);
     }
+     //Implement a case for Fibonacci sequence
+    //Finding the factors of a number
+    //Finding factors of a quadratic formula
+    //Using an online algorithm, find the more complex functions' critical values like Cubic functions and more
+    //Finding co-ordinates of graphs
+    //Finding geometric sigma and and sum to infinity
+    //@Auhtor Sam.
 
     public static void main(String[] args) {
         PracticeJava obj = new PracticeJava();
