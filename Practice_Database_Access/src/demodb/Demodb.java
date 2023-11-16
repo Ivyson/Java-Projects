@@ -1,3 +1,5 @@
+package demodb;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
@@ -10,6 +12,7 @@ import java.util.logging.Logger;
 import java.sql.*;
 import java.util.*;
 import java.sql.SQLException;
+import newpackage.sam.swing.LoginUpdated;
 
 /**
  *
@@ -70,6 +73,7 @@ public class Demodb {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        new LoginUpdated().setVisible(true);
         try {
          Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
          String url = "jdbc:ucanaccess://C:\\Users\\Sam\\OneDrive\\Documents\\AccountsDB.accdb";

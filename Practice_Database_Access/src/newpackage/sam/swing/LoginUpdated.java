@@ -2,9 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Mypackage;
+package newpackage.sam.swing;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.sql.*;
+
 
 /**
  *
@@ -15,6 +22,22 @@ public class LoginUpdated extends javax.swing.JFrame {
     /**
      * Creates new form LoginUpdated
      */
+        public boolean recordExists(String Username, String Password, Connection conn) {
+    boolean exists = false;
+    try {
+        String sql = "SELECT * FROM CredentialsDB WHERE Username = ? AND Password = ?";
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, Username);
+        pstmt.setString(2, Password);
+        //pstmt.setString(3, email);
+        //pstmt.setInt(4, age);
+        ResultSet rs = pstmt.executeQuery();
+        exists = rs.next();
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
+    }
+    return exists;
+}
     public LoginUpdated() {
         initComponents();
     }
@@ -52,9 +75,18 @@ public class LoginUpdated extends javax.swing.JFrame {
 
         jLabel5.setForeground(new java.awt.Color(0, 51, 153));
         jLabel5.setText("Forgot Password? Click Here");
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(204, 51, 255));
         jButton1.setText("Log In");
+        jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -63,6 +95,9 @@ public class LoginUpdated extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(204, 51, 255));
         jButton2.setText("Exit");
+        jButton2.setBorderPainted(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setFocusPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -71,6 +106,7 @@ public class LoginUpdated extends javax.swing.JFrame {
 
         jLabel6.setForeground(new java.awt.Color(0, 51, 153));
         jLabel6.setText("Not Signed Up? Register Here");
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 18)); // NOI18N
         jLabel1.setText("Log In Page");
@@ -94,16 +130,16 @@ public class LoginUpdated extends javax.swing.JFrame {
                                 .addComponent(jButton2))))
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(3, 3, 3)
+                                .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jUsername)))))
+                                .addGap(2, 2, 2)
+                                .addComponent(jUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -115,7 +151,7 @@ public class LoginUpdated extends javax.swing.JFrame {
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(55, 55, 55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -125,7 +161,7 @@ public class LoginUpdated extends javax.swing.JFrame {
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(35, 35, 35)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -141,7 +177,7 @@ public class LoginUpdated extends javax.swing.JFrame {
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(216, 216, 216)
+                .addContainerGap(216, Short.MAX_VALUE)
                 .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(236, Short.MAX_VALUE))
         );
@@ -150,7 +186,7 @@ public class LoginUpdated extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap(112, Short.MAX_VALUE)
                 .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -173,31 +209,39 @@ public class LoginUpdated extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         // TODO add your handling code here:
          String Username = jUsername.getText();
-        String Password = jPassword.getText();
-        if(Username.equals("") || Password.equals(""))
+         String Password = jPassword.getText();
+         try {
+             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+         String url = "jdbc:ucanaccess://C:\\Users\\Sam\\OneDrive\\Documents\\AccountsDB.accdb";
+         Connection conn = DriverManager.getConnection(url);
+            System.out.println("Connection Successful");
+            Boolean status = recordExists(Username, Password, conn);
+            if(Username.equals("") || Password.equals("")) //If the password is empty
         {
             JOptionPane.showMessageDialog(null, "One of the fields are empty","Error 404",JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-        if(Username.equals("admin"))
+        if(status)
         {
-            if(Password.equals("admin123"))
-            {
-                this.setVisible(false);
-                new ProfileUpdated().setVisible(true);
-            
-            }
-            else{
-            JOptionPane.showMessageDialog(null, "The Password is incorrect");
-            }
+            //Allow a log in to happen
+             //JOptionPane.showMessageDialog(null, "Good boy","Error 404",JOptionPane.INFORMATION_MESSAGE);
         }
         else{
         JOptionPane.showMessageDialog(null, "Wrong Information","Error402",JOptionPane.ERROR_MESSAGE);
         }
         }
+        } catch (Exception e) {
+            System.out.println("Connection Unsuccessful");
+        }
+         
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        
+        
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -224,6 +268,7 @@ public class LoginUpdated extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginUpdated.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
