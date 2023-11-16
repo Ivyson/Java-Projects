@@ -114,11 +114,51 @@ public class PracticeJava {
         }
         System.out.println("The sum of all the terms in this series is " + sum);
     }
-     //Implement a case for Fibonacci sequence
-    //Finding the factors of a number
+    //Finding factors of a number
+    public void numberfactor(int num)
+    {
+        int j = 0;
+        Integer[] factors;
+        //Integer index = num;
+        Integer[] arr = new Integer[num];
+        for(int i = 1; i <= num; i++) 
+        {
+            if(num % i == 0)
+            {
+                arr[j] = i;
+                System.out.println(arr[j]);
+                j++;
+                
+            }
+        } 
+        
+        factors = Arrays.copyOf(arr, j);// This is to copy and use only the critical values stored and not all the values stored in arr
+        JOptionPane.showMessageDialog(null,Arrays.toString(factors));  
+    }
     //Finding factors of a quadratic formula
+    public void Quadratic()
+    {
+        Double secPower = Double.parseDouble(JOptionPane.showInputDialog("What is the value of the highest power(x^2)"));
+        Double bValue = Double.parseDouble(JOptionPane.showInputDialog("Enter the value of b,The coefficient of x"));
+        Double constant = Double.parseDouble(JOptionPane.showInputDialog("Enter the value constant/The value that has no x in it"));
+        Double disciminant = bValue*bValue -4*secPower*constant;
+        Double x1,x2;
+        if(disciminant < 0)
+        {
+            JOptionPane.showMessageDialog(null, "This function has factors that belong in the complex number plane");
+        }
+        else{
+            x1 = -(bValue/2) + Math.sqrt(disciminant)/2;
+            x2 = -(bValue/2) - Math.sqrt(disciminant)/2;
+            JOptionPane.showMessageDialog(null, "The x- intercepts are :"+x1+"; "+x2+ "\n The y-intercept :"+constant);
+            System.exit(0);
+        }
+        JOptionPane.showMessageDialog(null, "The Y-intercept of the graph is: "+constant);
+    }
+    
+    
+    
     //Using an online algorithm, find the more complex functions' critical values like Cubic functions and more
-    //Finding co-ordinates of graphs
     //Finding geometric sigma and and sum to infinity
     //@Auhtor Sam.
 
@@ -129,13 +169,14 @@ public class PracticeJava {
         int Option1;
         double results;
         try {
-            Option1 = Integer.parseInt(JOptionPane.showInputDialog("What Operation do you want to perform \n1.Multiplication \n2.Addition \n3.Subtraction \n4.Trigonometric functions \n5.Logs \n6.Factorials \n7. Radical signs\n8.Powers\n9.Arithmetic sum"));
+            Option1 = Integer.parseInt(JOptionPane.showInputDialog("What Operation do you want to perform \n1.Multiplication \n2.Addition \n3.Subtraction \n4.Trigonometric functions \n5.Logs \n6.Factorials \n7. Radical signs\n8.Powers\n9.Arithmetic sum\n10.Finding factors of a number\n11.Finding factors of a quadratic formula"));
             switch (Option1) {
                 case 1:
                     num1 = Double.parseDouble(JOptionPane.showInputDialog("Enter the first number"));
                     num2 = Double.parseDouble(JOptionPane.showInputDialog("Enter the Second number"));
                     results = obj.Multiplication(num1, num2);
                     JOptionPane.showMessageDialog(null, "The product is : " + results);
+                   obj.numberfactor(10);
                     break;
                 case 2:
                     num1 = Double.parseDouble(JOptionPane.showInputDialog("Enter the first number"));
@@ -179,6 +220,13 @@ public class PracticeJava {
                     break;
                 case 9:
                     obj.arithmaticseq();
+                    break;
+                case 10:
+                    int number = Integer.parseInt(JOptionPane.showInputDialog("Enter the number"));
+                    obj.numberfactor(number);
+                    break;
+                case 11:
+                    obj.Quadratic();
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "The Option you entered doesn't exist");
