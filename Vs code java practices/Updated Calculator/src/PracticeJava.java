@@ -1,4 +1,7 @@
 import javax.swing.JOptionPane;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.*; //Import the scanner Library just in case i will need to use a scanner instead of casting the value from a JOptionPane
 //Use math library that has maths methods in it to perform complex maths operations like complex numbers and all those things
 
@@ -155,11 +158,29 @@ public class PracticeJava {
         }
         JOptionPane.showMessageDialog(null, "The Y-intercept of the graph is: "+constant);
     }
+    //Representing numbers in the Scientific Notation
+    public void ScForm()
+    {
+        int ScNum = Integer.parseInt(JOptionPane.showInputDialog("Enter the number"));
+        if(ScNum == 0)
+        {
+            JOptionPane.showMessageDialog(null, "0 in Scientific notation can be written as 0.00E0");
+        }
+
+        DecimalFormatSymbols symbol = new DecimalFormatSymbols();
+        symbol.setDecimalSeparator('.');
+        symbol.setExponentSeparator("E");
+        DecimalFormat df = new DecimalFormat("0.00E0", symbol);
+        JOptionPane.showMessageDialog(null, "The representation of "+ScNum+" is: "+df.format(ScNum));
+
+    }
     
-    
-    
+    //Finding a gradient of a straight line
+    //Finding a first derivative of a quadratic functions and cubic functions,sin,cosine and tan graphs
     //Using an online algorithm, find the more complex functions' critical values like Cubic functions and more
     //Finding geometric sigma and and sum to infinity
+    //Area of a triangle - Cone - Parabola - ellipse - cylinder - ellipsoid(surface area) 
+
     //@Auhtor Sam.
 
     public static void main(String[] args) {
@@ -169,7 +190,7 @@ public class PracticeJava {
         int Option1;
         double results;
         try {
-            Option1 = Integer.parseInt(JOptionPane.showInputDialog("What Operation do you want to perform \n1.Multiplication \n2.Addition \n3.Subtraction \n4.Trigonometric functions \n5.Logs \n6.Factorials \n7. Radical signs\n8.Powers\n9.Arithmetic sum\n10.Finding factors of a number\n11.Finding factors of a quadratic formula"));
+            Option1 = Integer.parseInt(JOptionPane.showInputDialog("What Operation do you want to perform \n1.Multiplication \n2.Addition \n3.Subtraction \n4.Trigonometric functions \n5.Logs \n6.Factorials \n7. Radical signs\n8.Powers\n9.Arithmetic sum\n10.Finding factors of a number\n11.Finding factors of a quadratic formula\n12.More.."));
             switch (Option1) {
                 case 1:
                     num1 = Double.parseDouble(JOptionPane.showInputDialog("Enter the first number"));
@@ -227,6 +248,16 @@ public class PracticeJava {
                     break;
                 case 11:
                     obj.Quadratic();
+                    break;
+                case 12:
+                    int option2 = Integer.parseInt(JOptionPane.showInputDialog("1.Scientific Notation"));
+                    switch (option2) {
+                        case 1:
+                            obj.ScForm();
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "The Option you entered doesn't exist");
