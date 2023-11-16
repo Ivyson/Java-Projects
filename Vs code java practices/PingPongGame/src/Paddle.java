@@ -13,7 +13,7 @@ public class Paddle extends Rectangle{
 	}
 	
 	public void keyPressed(KeyEvent e) {
-		switch(id) {
+		switch(id) { 
 		case 1:
 			if(e.getKeyCode()==KeyEvent.VK_W) {
 				setYDirection(-speed);
@@ -23,7 +23,7 @@ public class Paddle extends Rectangle{
 			}
 			break;
 		case 2:
-			if(e.getKeyCode()==KeyEvent.VK_UP) {
+			if(e.getKeyCode()==KeyEvent.VK_UP) { //This is for the second player to move up and doown
 				setYDirection(-speed);
 			}
 			if(e.getKeyCode()==KeyEvent.VK_DOWN) {
@@ -60,9 +60,9 @@ public class Paddle extends Rectangle{
 	}
 	public void draw(Graphics g) {
 		if(id==1)
-			g.setColor(Color.blue);
+			g.setColor(new Color(28,207,220));
 		else
-			g.setColor(Color.red);
+			g.setColor(new Color(184,76,225));
 		g.fillRect(x, y, width, height);
 	}
 }
