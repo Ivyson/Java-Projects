@@ -7,6 +7,7 @@ import java.util.*; //Import the scanner Library just in case i will need to use
 
 public class PracticeJava {
     double result1;
+    Scanner scanner;
 
     public double adding(double num1, double num2) {
         return (num1 + num2);
@@ -172,8 +173,41 @@ public class PracticeJava {
         symbol.setExponentSeparator("E");
         DecimalFormat df = new DecimalFormat("0.00E0", symbol);
         JOptionPane.showMessageDialog(null, "The representation of "+ScNum+" is: "+df.format(ScNum));
-
     }
+     //Method for Matrices
+     public void matrix()
+     {
+        //Specifically for 2D Matrices
+        Integer[][] matrices;
+        scanner = new Scanner(System.in);
+        int row = Integer.parseInt(JOptionPane.showInputDialog("Your matrix has how many rows"));
+        int columns = Integer.parseInt(JOptionPane.showInputDialog("How many columns does your matrix have"));
+        matrices = new Integer[row][columns];
+        JOptionPane.showMessageDialog(null, "Everything else from here will be done on the console");
+        System.out.println("You will be asked to input the vaalues of in the matrice");
+        for(int i = 0; i < row; i++)
+        {
+        for (int j = 0; j < columns; j++)
+            {
+                System.out.printf("Matrice[%d][%d]=",i+1,j+1);
+                matrices[i][j] = scanner.nextInt();
+                scanner.nextLine(); //To consume the next line character created by a user pressing enter
+            }
+            //System.out.println("\n");
+        }
+        System.out.println("Your matrice will be displayed below!");
+        for(int i = 0; i < row; i++)
+        {
+            System.out.printf("|");
+            for (int j = 0; j < columns; j++)
+            {
+                System.out.printf("%d\t",matrices[i][j]);
+            }
+            System.out.printf("|\n");
+        }
+     }
+     
+
     
     //Finding a gradient of a straight line
     //Finding a first derivative of a quadratic functions and cubic functions,sin,cosine and tan graphs
@@ -250,10 +284,13 @@ public class PracticeJava {
                     obj.Quadratic();
                     break;
                 case 12:
-                    int option2 = Integer.parseInt(JOptionPane.showInputDialog("1.Scientific Notation"));
+                    int option2 = Integer.parseInt(JOptionPane.showInputDialog("1.Scientific Notation\n2.Matrix"));
                     switch (option2) {
                         case 1:
                             obj.ScForm();
+                            break;
+                        case 2:
+                            obj.matrix();
                             break;
                         default:
                             break;
