@@ -49,7 +49,6 @@ public class PracticeJava {
         else{
             JOptionPane.showMessageDialog(null, "The "+num2+" Root of "+num1+" is : "+Math.pow(Math.abs(num1), 1/num2));
         }
-        //return (Math.pow(num1, 1 / num2));
     }
 
     public double Trigonometry(double num1, int Option2) {
