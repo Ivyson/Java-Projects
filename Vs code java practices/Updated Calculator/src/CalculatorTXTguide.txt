@@ -1,0 +1,8 @@
+Goals for this calculator****
+1- Complex number Operations
+2- Matrix Operations
+3- Binary(Digital electronics) Conversions
+4- Calculus operations (Simple derivatives and integration**finding limits too)
+5- Discrete Maths - Finding factorials,etc
+6- Solving Simple equations as linear,quadratic and differential equationss
+7-Plotting graphs - Using GUI and external libraries where possible
