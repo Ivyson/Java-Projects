@@ -7,7 +7,7 @@ public class MatrixMultiplication {
 
     }
     //Trying to multiply two matrices
-    public void Matrice()
+    public void MatriceOp()
     {
         scanner = new Scanner(System.in);
         int row1,column1,row2,column2,Option;
@@ -89,6 +89,14 @@ public class MatrixMultiplication {
                             }
                         }
                     }
+                    for(int i = 0; i < row1; i++)//This for loop is for printing the results.
+                    {
+                        for(int j = 0; j < column1; j++)
+                        {
+                            System.out.printf("%d\t",result[i][j]);
+                        }
+                        System.out.println();
+                    }
                 }
                 else{
                     System.out.println("The multiplication is impossible,Please check the size of your Matrix");
@@ -98,5 +106,10 @@ public class MatrixMultiplication {
                 System.out.println("The option you chose might've be wrong!");
         }
         
+    }
+    public int determinant(int Matrix[][])
+    { 
+        
+        return 1;//This should be changed
     }
 }
