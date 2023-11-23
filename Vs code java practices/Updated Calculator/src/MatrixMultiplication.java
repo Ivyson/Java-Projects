@@ -75,7 +75,24 @@ public class MatrixMultiplication {
                 }
                 break;
             case 2: //Multiplying matrices
-                
+                if(column1 == row2)
+                {
+                    result = new int[row1][column2];
+                    for(int i = 0; i < row1; i++)
+                    {
+                        for(int j = 0; j < column1; j++)
+                        {
+                            result[i][j] = 0;
+                            for(int t = 0; t < row1; t++)
+                            {
+                                result[i][j] = result[i][j] + Matrice1[i][t] * Matrice2[i][t];
+                            }
+                        }
+                    }
+                }
+                else{
+                    System.out.println("The multiplication is impossible,Please check the size of your Matrix");
+                }
                 break;
             default:
                 System.out.println("The option you chose might've be wrong!");
