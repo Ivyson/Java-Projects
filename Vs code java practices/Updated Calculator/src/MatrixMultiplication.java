@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class MatrixMultiplication {
     Scanner scanner;
+    int[][] result ;   
     public MatrixMultiplication()
     {
 
@@ -11,7 +12,7 @@ public class MatrixMultiplication {
     {
         scanner = new Scanner(System.in);
         int row1,column1,row2,column2,Option;
-        int[][] Matrice1,Matrice2,result;
+        int[][] Matrice1,Matrice2;
         System.out.println("How many rows does your first Matrice has?");
         row1 = scanner.nextInt();
         scanner.nextLine(); //To consume the new line created after the integer scanning
@@ -89,14 +90,7 @@ public class MatrixMultiplication {
                             }
                         }
                     }
-                    for(int i = 0; i < row1; i++)//This for loop is for printing the results.
-                    {
-                        for(int j = 0; j < column1; j++)
-                        {
-                            System.out.printf("%d\t",result[i][j]);
-                        }
-                        System.out.println();
-                    }
+                    
                 }
                 else{
                     System.out.println("The multiplication is impossible,Please check the size of your Matrix");
@@ -107,9 +101,38 @@ public class MatrixMultiplication {
         }
         
     }
+    public void displayMatrice(int[][] matrice,int rows,int column)
+    {
+        for(int i = 0; i < rows; i++)//This for loop is for printing the results.
+                    {
+                        for(int j = 0; j < column; j++)
+                        {
+                            System.out.printf("%d\t",result[i][j]);
+                        }
+                        System.out.println();
+                    }
+    }
+    public void displayTranspose(int matrices[][],int row, int column)
+    {
+        System.out.println("__________________________");
+        System.out.println("The Transpose of your matrice:");
+            for(int i = 0; i < column; i++)
+            {
+                System.out.printf("|");
+                for(int j = 0; j < row; j++)
+                {
+                    System.out.printf("%d\t",matrices[j][i]);
+                }
+                System.out.printf("|\n");
+            }
+    }
+    public void displaysize()
+    {
+
+    }
     public int determinant(int Matrix[][])
     { 
         
-        return 1;//This should be changed
+        return 1;//This should be changed to return a determinant
     }
 }

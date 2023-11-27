@@ -7,7 +7,7 @@ import java.util.*; //Import the scanner Library just in case i will need to use
 public class PracticeJava {
     double result1;
     Scanner scanner;
-    public final Double PI = 3.141592654;
+    public final Double PI = 3.1415926535897932384626433832795;
 
     public double adding(double num1, double num2) {
         return (num1 + num2);
@@ -44,7 +44,8 @@ public class PracticeJava {
             JOptionPane.showMessageDialog(null, "The number on the power cannot be zero");
         } else if (num1 < 0) {
             // Handle negative number case if needed
-            System.out.println("The "+num2+" Root of "+num1+" is : "+Math.pow(Math.abs(num1), 1/num2)+"i");
+            JOptionPane.showMessageDialog(null, "The "+num2+" Root of "+num1+" is : "+Math.pow(Math.abs(num1), 1/num2)+"i");
+            //System.out.println("The "+num2+" Root of "+num1+" is : "+Math.pow(Math.abs(num1), 1/num2)+"i");
         }
         else{
             JOptionPane.showMessageDialog(null, "The "+num2+" Root of "+num1+" is : "+Math.pow(Math.abs(num1), 1/num2));
@@ -152,9 +153,11 @@ public class PracticeJava {
         Double constant = Double.parseDouble(JOptionPane.showInputDialog("Enter the value constant/The value that has no x in it"));
         Double disciminant = bValue*bValue -4*secPower*constant;
         Double x1,x2;
-        if(disciminant < 0)
+        if(disciminant < 0) //Handle the complex number factorisation!!!!!
         {
             JOptionPane.showMessageDialog(null, "This function has factors that belong in the complex number plane");
+            JOptionPane.showMessageDialog(null, "z1="+(-bValue/2)+"+"+Math.sqrt(Math.abs(disciminant))/2+"i\nz2="+(-bValue/2)+"-"+Math.sqrt(Math.abs(disciminant))/2+"i");
+            System.out.println("z1="+(-bValue/2)+"+"+Math.sqrt(Math.abs(disciminant))/2+"i\nz2="+(-bValue/2)+"-"+Math.sqrt(Math.abs(disciminant))/2+"i");
         }
         else{
             x1 = -(bValue/2) + Math.sqrt(disciminant)/2;
@@ -183,63 +186,56 @@ public class PracticeJava {
      public void matrix()
      {
         //Specifically for 2D Matrices
+        MatrixMultiplication obje = new MatrixMultiplication();
         Integer[][] matrices;
+        int row,columns;
+        int option2;
         scanner = new Scanner(System.in);
-        int row = Integer.parseInt(JOptionPane.showInputDialog("Your matrix has how many rows"));
-        int columns = Integer.parseInt(JOptionPane.showInputDialog("How many columns does your matrix have"));
-        matrices = new Integer[row][columns];
-        JOptionPane.showMessageDialog(null, "Everything else from here will be done on the console");
-        System.out.println("You will be asked to input the vaalues of in the matrice");
-        for(int i = 0; i < row; i++)
+        int option = Integer.parseInt(JOptionPane.showInputDialog("Dealing with how many matrice:\n1.1 Matrice\n2. Two matrix"));
+        switch(option)
         {
-        for (int j = 0; j < columns; j++)
-            {
-                System.out.printf("Matrice[%d][%d]=",i+1,j+1);
-                matrices[i][j] = scanner.nextInt();
-                scanner.nextLine(); //To consume the next line character created by a user pressing enter
-            }
-            //System.out.println("\n");
-        }
-        System.out.println("Your matrice will be displayed below!");
-        for(int i = 0; i < row; i++)
-        {
-            System.out.printf("|");
-            for (int j = 0; j < columns; j++)
-            {
-                System.out.printf("%d\t",matrices[i][j]);
-            }
-            System.out.printf("|\n");
-        }
-        int option = Integer.parseInt(JOptionPane.showInputDialog("Which Matrice operation do you want to perfom\n1.Transpose of matrice"));
-        switch (option) {
             case 1:
-            System.out.println("__________________________");
-            System.out.println("The Transpose of your matrice:");
-                for(int i = 0; i < columns; i++)
+            row = Integer.parseInt(JOptionPane.showInputDialog("Your matrix has how many rows"));
+            columns = Integer.parseInt(JOptionPane.showInputDialog("How many columns does your matrix have"));
+            matrices = new Integer[row][columns];
+            JOptionPane.showMessageDialog(null, "Everything else from here will be done on the console");
+            System.out.println("You will be asked to input the values of in the matrice");
+            for(int i = 0; i < row; i++)
+            {
+            for (int j = 0; j < columns; j++)
                 {
-                    System.out.printf("|");
-                    for(int j = 0; j < row; j++)
-                    {
-                        System.out.printf("%d\t",matrices[j][i]);
-                    }
-                    System.out.printf("|\n");
+                    System.out.printf("Matrice[%d][%d]=",i+1,j+1);
+                    matrices[i][j] = scanner.nextInt();
+                    scanner.nextLine(); //To consume the next line character created by a user pressing enter
                 }
-                break;
+            }
+            System.out.println("Your matrice will be displayed below!");
+            for(int i = 0; i < row; i++)
+            {
+                System.out.printf("|");
+                for (int j = 0; j < columns; j++)
+                {
+                    System.out.printf("%d\t",matrices[i][j]);
+                }
+                System.out.printf("|\n");
+                option2 = Integer.parseInt(JOptionPane.showInputDialog("What do you want to do:\n1.Display Transpose\n2. Display the size of the Matrice"));
+                if(option2 == 1)
+                {
+                  // obje.displayTranspose(matrices[][],row,columns);
+                }
+                else if(option2 == 2)
+                {
+                    System.out.println("The size of the matrice is "+row+"x"+columns);
+                }
+                else{
+                    System.out.println("The option selected is invalid");
+                }
+            }
+            break;
             case 2:
-                if(row == columns)
-                {
-
-                }
-                else
-                {
-                    System.out.println("The determinant of a non square matrix is undefined");
-                }
-                break;
-            
-            default:
-                break;
+                obje.MatriceOp();
+            break;
         }
-
      }
      public void complex()
      {
@@ -272,7 +268,7 @@ public class PracticeJava {
         JOptionPane.showMessageDialog(null, "The arguement of the entered complex numberin radians is "+argument+"\nThe arguement of the entered complex number in Degrees is "+ArgDegrees);
             break;
         case 2: //Operating on two complex numbers
-                Option = Integer.parseInt(JOptionPane.showInputDialog("What operation do you want to perform:\n1.Addition\n2.Division\n3.Multiplication\n4.Subtraction"));
+            Option = Integer.parseInt(JOptionPane.showInputDialog("What operation do you want to perform:\n1.Addition\n2.Division\n3.Multiplication\n4.Subtraction"));
             switch (Option) {
             case 1:
                 real = Double.parseDouble(JOptionPane.showInputDialog("Enter the real number"));
@@ -342,9 +338,18 @@ public class PracticeJava {
         {
             argument3 = PI + Math.abs(Math.atan(Imaginery3/real3));
         }
+        else if(Imaginery == 0 && real > 0)
+        {
+            argument = 0;
+        }
+        else if(Imaginery == 0 && real < 0) //2nd Quadrant
+        {
+            argument = 6.283185307179586476925286766559;
+        }
         else { //Second quadrant
             argument3 = PI - Math.abs(Math.atan(Imaginery3/real3));
         }
+        break;
                 
         switch (Option) {
             case 1:
@@ -374,12 +379,40 @@ public class PracticeJava {
                 break;
          }
        
+    }public void geometric()
+    {
+        //sn = a(r^n -1)/(r-1) ----if r is greater than 1. 
+        // sn = a(r^n -1 )/(1-r) ---if r is less than 1, r should never be equal to zero
+        //tn = a*r^(n-1)
+        int num_terms;
+        Double commonratio,first_term,sum,termnumber;
+        num_terms = Integer.parseInt(JOptionPane.showInputDialog("How many number your terms does your series have"));
+        first_term = Double.parseDouble(JOptionPane.showInputDialog("What is your first term of the series"));
+        commonratio = Double.parseDouble(JOptionPane.showInputDialog("What is the common difference in your series"));
+        termnumber = first_term * Math.pow(commonratio,num_terms-1);
+        if(commonratio > 1)
+        {
+            sum = first_term*(Math.pow(commonratio,num_terms)-1)/(commonratio-1);
+        }
+        else if(commonratio < 1)
+        {
+            sum = first_term*(1-Math.pow(commonratio,num_terms))/(1- commonratio);
+        }
+        else
+        {
+             sum = first_term;
+        }
+        for(int i = 1; i <= num_terms; i++)
+        {
+            termnumber = first_term*Math.pow(commonratio,i-1);
+            System.out.printf("%f\t",termnumber);
+        }
+        System.out.println("The sum of all these terms is: "+sum);
     }
      
 
-    ///*Handle the issue of when the Imaginer number is zero! */
+    ///*Handle the issue of when the Imaginerey number is zero! */
     //Finding a gradient of a straight line
-    //Finding a first derivative of a quadratic functions and cubic functions,sin,cosine and tan graphs
     //Using an online algorithm, find the more complex functions' critical values like Cubic functions and more
     //Finding geometric sigma and and sum to infinity
     //Area of a triangle - Cone - Parabola - ellipse - cylinder - ellipsoid(surface area) 
@@ -388,6 +421,7 @@ public class PracticeJava {
 
     public static void main(String[] args) {
         PracticeJava obj = new PracticeJava();
+        MatrixMultiplication mat = new MatrixMultiplication();
         Double num1;
         Double num2;
         int Option1;
@@ -399,8 +433,8 @@ public class PracticeJava {
                     num1 = Double.parseDouble(JOptionPane.showInputDialog("Enter the first number"));
                     num2 = Double.parseDouble(JOptionPane.showInputDialog("Enter the Second number"));
                     results = obj.Multiplication(num1, num2);
-                    JOptionPane.showMessageDialog(null, "The product is : " + results);
-                   obj.numberfactor(10);
+                    JOptionPane.showMessageDialog(null, "The product : " + results);
+                  // obj.numberfactor(10);
                     break;
                 case 2:
                     num1 = Double.parseDouble(JOptionPane.showInputDialog("Enter the first number"));
