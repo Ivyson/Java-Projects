@@ -1,6 +1,13 @@
 {
     "configurations": [
         {
+            "type": "java",
+            "name": "PracticeJava",
+            "request": "launch",
+            "mainClass": "PracticeJava",
+            "projectName": "Updated Calculator_1c11f259"
+        },
+        {
             "name": "CMake: CMake Script",
             "type": "cmake",
             "request": "launch",

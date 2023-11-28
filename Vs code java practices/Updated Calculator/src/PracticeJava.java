@@ -237,149 +237,7 @@ public class PracticeJava {
             break;
         }
      }
-     public void complex()
-     {
-        Double Imaginery,real,modulus,argument,ArgDegrees,real2,Imaginery2,real3,Imaginery3,modulus2,modulus3,argument2,argument3,realresult,ImagineryResult;
-        Double modulusresult,argumentResult,realResult;
-         Integer Option;
-        Integer Opt = Integer.parseInt(JOptionPane.showInputDialog("How many complex numbers are we dealing with:\n1.One\n2.Two\3.Three"));
-        switch (Opt) {
-            case 1: //For 1 complex number
-            real = Double.parseDouble(JOptionPane.showInputDialog("Enter the real number"));
-        Imaginery = Double.parseDouble(JOptionPane.showInputDialog("Enter the Imaginery number(without the i/j)"));
-        modulus = Math.sqrt(Imaginery*Imaginery + real*real);
-        //Provide the answer according to the correct quadrant(real >> x; Imaginery >> y)
-        if(real > 0 && Imaginery > 0) //First quadrant
-        {
-            argument = Math.abs(Math.atan(Imaginery/real));// Provided value is in radians
-        }
-        else if(real > 0 && Imaginery < 0) //4th Quadrant
-        {
-            argument = 2*PI - Math.abs(Math.atan(Imaginery/real));
-        }
-        else if(real < 0 && Imaginery < 0) //3rd quadrant 
-        {
-            argument = PI + Math.abs(Math.atan(Imaginery/real));
-        }
-        else { //Second quadrant
-            argument = PI - Math.abs(Math.atan(Imaginery/real));
-        }
-        ArgDegrees = (180/PI)*argument;
-        JOptionPane.showMessageDialog(null, "The arguement of the entered complex numberin radians is "+argument+"\nThe arguement of the entered complex number in Degrees is "+ArgDegrees);
-            break;
-        case 2: //Operating on two complex numbers
-            Option = Integer.parseInt(JOptionPane.showInputDialog("What operation do you want to perform:\n1.Addition\n2.Division\n3.Multiplication\n4.Subtraction"));
-            switch (Option) {
-            case 1:
-                real = Double.parseDouble(JOptionPane.showInputDialog("Enter the real number"));
-                Imaginery = Double.parseDouble(JOptionPane.showInputDialog("Enter the Imaginery number(without the i/j)"));
-                modulus = Math.sqrt(Imaginery * Imaginery + real * real);
-                real2 = Double.parseDouble(JOptionPane.showInputDialog("Enter the real number"));
-                Imaginery2 = Double.parseDouble(JOptionPane.showInputDialog("Enter the Imaginery number(without the i/j)"));
-                modulus2 = Math.sqrt(Imaginery * Imaginery + real * real);
-                break;
-                //Add code and cases for two complex numbers operation
-                default:// For 2 complex numbers
-                break;
-            }       
-        case 3: //For three Complex numbers
-                  Option = Integer.parseInt(JOptionPane.showInputDialog("What operation do you want to perform:\n1.Addition\n2.Division\n3.Multiplication\n4.Subtraction"));
-                  real = Double.parseDouble(JOptionPane.showInputDialog("1.Enter the real number"));
-                Imaginery = Double.parseDouble(JOptionPane.showInputDialog("1.Enter the Imaginery number(without the i/j)"));
-                modulus = Math.sqrt(Imaginery * Imaginery + real * real);
-                real2 = Double.parseDouble(JOptionPane.showInputDialog("2.Enter the real number"));
-                Imaginery2 = Double.parseDouble(JOptionPane.showInputDialog(".2Enter the Imaginery number(without the i/j)"));
-                modulus2 = Math.sqrt(Imaginery * Imaginery + real * real);
-                real3 = Double.parseDouble(JOptionPane.showInputDialog("3.Enter the real number"));
-                Imaginery3 = Double.parseDouble(JOptionPane.showInputDialog("3.Enter the Imaginery number(without the i/j)"));
-                modulus3 = Math.sqrt(Imaginery * Imaginery + real * real);
-                //Provide the answer according to the correct quadrant(real >> x; Imaginery >> y)
-        if(real > 0 && Imaginery > 0) //First quadrant
-        {
-            argument = Math.abs(Math.atan(Imaginery/real));// Provided value is in radians
-        }
-        else if(real > 0 && Imaginery < 0) //4th Quadrant
-        {
-            argument = 2*PI - Math.abs(Math.atan(Imaginery/real));
-        }
-        else if(real < 0 && Imaginery < 0) //3rd quadrant 
-        {
-            argument = PI + Math.abs(Math.atan(Imaginery/real));
-        }
-        else { //Second quadrant
-            argument = PI - Math.abs(Math.atan(Imaginery/real));
-        }
-        //For complex number 2
-        if(real2 > 0 && Imaginery2 > 0) //First quadrant
-        {
-            argument2 = Math.abs(Math.atan(Imaginery2/real2));// Provided value is in radians
-        }
-        else if(real2 > 0 && Imaginery2 < 0) //4th Quadrant
-        {
-            argument2 = 2*PI - Math.abs(Math.atan(Imaginery2/real2));
-        }
-        else if(real2 < 0 && Imaginery2 < 0) //3rd quadrant 
-        {
-            argument2 = PI + Math.abs(Math.atan(Imaginery2/real2));
-        }
-        else { //Second quadrant
-            argument2 = PI - Math.abs(Math.atan(Imaginery2/real2));
-        }
-        //For complex number 3
-        if(real3 > 0 && Imaginery3 > 0) //First quadrant
-        {
-            argument3 = Math.abs(Math.atan(Imaginery3/real3));// Provided value is in radians
-        }
-        else if(real3 > 0 && Imaginery3 < 0) //4th Quadrant
-        {
-            argument3 = 2*PI - Math.abs(Math.atan(Imaginery3/real3));
-        }
-        else if(real3 < 0 && Imaginery3 < 0) //3rd quadrant 
-        {
-            argument3 = PI + Math.abs(Math.atan(Imaginery3/real3));
-        }
-        else if(Imaginery == 0 && real > 0)
-        {
-            argument = 0.0;
-        }
-        else if(Imaginery == 0 && real < 0) //2nd Quadrant
-        {
-            argument = 6.283185307179586476925286766559;
-        }
-        else { //Second quadrant
-            argument3 = PI - Math.abs(Math.atan(Imaginery3/real3));
-        }
-        break;
-                
-        //switch (Option) {
-        //     case 1:
-        //         //Addition of 3 complex numbers
-        //     realresult = real + real2 + real3;
-        //     ImagineryResult = Imaginery + Imaginery2 + Imaginery3;
-        //     JOptionPane.showMessageDialog(null, "The Resulting complex number is "+realresult+"+("+ImagineryResult+")i");
-        //         break;
-        //     case 2:
-        //     //Division of three complex numbers Needs to handle the way of dividing, if we divide all of the 3 complex numbers in one term or ...
-
-        //     break;
-        //     case 3:
-        //     //Multiplication of all these complex numbers
-        //     modulusresult = modulus*modulus2*modulus3;
-        //     argumentResult = argument + argument2 + argument3;
-        //     //System.out.println("The modulus of the resulting complex number "+modulusresult+" and the argument is "+argumentResult);
-        //     realResult = modulusresult * Math.cos(argumentResult);
-        //     ImagineryResult = modulusresult * Math.sin(argumentResult);
-        //     System.out.println("The resulting complex number : "+realResult+"+("+ImagineryResult+" )i");
-        //     break; //Operation on three complex numbers
-        //     default: 
-        //         break;
-        // }
-         
-            default:// For number of Complex numbers dealing with.
-                break;
-         }
-       
-    }public void geometric()
+    public void geometric()
     {
         //sn = a(r^n -1)/(r-1) ----if r is greater than 1. 
         // sn = a(r^n -1 )/(1-r) ---if r is less than 1, r should never be equal to zero
@@ -422,6 +280,7 @@ public class PracticeJava {
     public static void main(String[] args) {
         PracticeJava obj = new PracticeJava();
         MatrixMultiplication mat = new MatrixMultiplication();
+        ComplexNumbers complexNumbers = new ComplexNumbers();
         Double num1;
         Double num2;
         int Option1;
@@ -496,7 +355,27 @@ public class PracticeJava {
                             obj.matrix();
                             break;
                         case 3:
-                            obj.complex();
+                            int numbercomplex;
+                            numbercomplex = Integer.parseInt(JOptionPane.showInputDialog("How many complex numbers are you dealing with\n1.One\n2.Two"));
+                            switch (numbercomplex) {
+                                case 1:
+                                     Double real,Imaginerey;
+                                     real = Double.parseDouble(JOptionPane.showInputDialog("Enter the real magnitude of your complex number"));
+                                     Imaginerey = Double.parseDouble(JOptionPane.showInputDialog("Enter the Imaginery magnitude of your complex number without the i/j"));
+                                     complexNumbers.oneComplex(real, Imaginerey);
+                                    break;
+                                case 2:
+                                    Double real1,real2,Imaginerey1,Imaginerey2;
+                                    real1 = Double.parseDouble(JOptionPane.showInputDialog("Enter the real magnitude of your complex number 1"));
+                                    real2 = Double.parseDouble(JOptionPane.showInputDialog("Enter the real magnitude of your complex number 2"));
+                                    Imaginerey1 = Double.parseDouble(JOptionPane.showInputDialog("Enter the Imaginery magnitude of your complex number1 without the i/j"));
+                                    Imaginerey2 = Double.parseDouble(JOptionPane.showInputDialog("Enter the Imaginery magnitude of your complex number1 without the i/j"));
+                                    complexNumbers.TwoComplex(real1, real2, Imaginerey1, Imaginerey2);
+                                    break;
+                                default:
+                                JOptionPane.showMessageDialog(null, "The chosen option is just invalid!","Error 221",JOptionPane.ERROR_MESSAGE);
+                                    break;
+                            }
                             break;
                         default:
                             break;
