@@ -340,7 +340,7 @@ public class PracticeJava {
         }
         else if(Imaginery == 0 && real > 0)
         {
-            argument = 0;
+            argument = 0.0;
         }
         else if(Imaginery == 0 && real < 0) //2nd Quadrant
         {
@@ -351,29 +351,29 @@ public class PracticeJava {
         }
         break;
                 
-        switch (Option) {
-            case 1:
-                //Addition of 3 complex numbers
-            realresult = real + real2 + real3;
-            ImagineryResult = Imaginery + Imaginery2 + Imaginery3;
-            JOptionPane.showMessageDialog(null, "The Resulting complex number is "+realresult+"+("+ImagineryResult+")i");
-                break;
-            case 2:
-            //Division of three complex numbers Needs to handle the way of dividing, if we divide all of the 3 complex numbers in one term or ...
+        //switch (Option) {
+        //     case 1:
+        //         //Addition of 3 complex numbers
+        //     realresult = real + real2 + real3;
+        //     ImagineryResult = Imaginery + Imaginery2 + Imaginery3;
+        //     JOptionPane.showMessageDialog(null, "The Resulting complex number is "+realresult+"+("+ImagineryResult+")i");
+        //         break;
+        //     case 2:
+        //     //Division of three complex numbers Needs to handle the way of dividing, if we divide all of the 3 complex numbers in one term or ...
 
-            break;
-            case 3:
-            //Multiplication of all these complex numbers
-            modulusresult = modulus*modulus2*modulus3;
-            argumentResult = argument + argument2 + argument3;
-            //System.out.println("The modulus of the resulting complex number "+modulusresult+" and the argument is "+argumentResult);
-            realResult = modulusresult * Math.cos(argumentResult);
-            ImagineryResult = modulusresult * Math.sin(argumentResult);
-            System.out.println("The resulting complex number : "+realResult+"+("+ImagineryResult+" )i");
-            break; //Operation on three complex numbers
-            default: 
-                break;
-        }
+        //     break;
+        //     case 3:
+        //     //Multiplication of all these complex numbers
+        //     modulusresult = modulus*modulus2*modulus3;
+        //     argumentResult = argument + argument2 + argument3;
+        //     //System.out.println("The modulus of the resulting complex number "+modulusresult+" and the argument is "+argumentResult);
+        //     realResult = modulusresult * Math.cos(argumentResult);
+        //     ImagineryResult = modulusresult * Math.sin(argumentResult);
+        //     System.out.println("The resulting complex number : "+realResult+"+("+ImagineryResult+" )i");
+        //     break; //Operation on three complex numbers
+        //     default: 
+        //         break;
+        // }
          
             default:// For number of Complex numbers dealing with.
                 break;
