@@ -352,6 +352,21 @@ public class PracticeJava {
                             obj.ScForm();
                             break;
                         case 2:
+                            int option;
+                            option = Integer.parseInt(JOptionPane.showInputDialog("What Type of Matrice do you want to perform:\n1.Scalar Multiplication\n2.Single Matrice operations\n3.Two Matrices Operations"));
+                            switch (option) {
+                                case 1:
+                                    mat.ScalarMultiplication();
+                                    break;
+                                case 2:
+                                    mat.SingleMatrice(); //Not finished!
+                                    break;
+                                case 3:
+                                    mat.MatriceOp();
+                                    break;
+                                default:
+                                    break;
+                            }
                             obj.matrix();
                             break;
                         case 3:
