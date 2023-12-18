@@ -33,11 +33,7 @@ class editor extends JFrame implements ActionListener {
 
         // Create a menubar
         JMenuBar mb = new JMenuBar();
-
-        // Create amenu for menu
         JMenu m1 = new JMenu("File");
-
-        // Create menu items
         JMenuItem mi1 = new JMenuItem("New");
         JMenuItem mi2 = new JMenuItem("Open");
         JMenuItem mi3 = new JMenuItem("Save");
@@ -170,7 +166,6 @@ class editor extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(f, evt.getMessage());
                 }
             }
-            // If the user cancelled the operation
             else
                 JOptionPane.showMessageDialog(f, "the user cancelled the operation");
         } else if (s.equals("New")) {
