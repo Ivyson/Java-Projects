@@ -18,6 +18,8 @@ class editor extends JFrame implements ActionListener {
     editor() {
         // Create a frame
         f = new JFrame("editor");
+        ImageIcon icon =new ImageIcon("Images/notepad.png");
+        f.setIconImage(icon.getImage());
 
         try {
             // Set metal look and feel
@@ -144,22 +146,13 @@ class editor extends JFrame implements ActionListener {
                 try {
                     // String
                     String s1 = "", sl = "";
-
                     // File reader
                     FileReader fr = new FileReader(fi);
-
-                    // Buffered reader
                     BufferedReader br = new BufferedReader(fr);
-
-                    // Initialize sl
                     sl = br.readLine();
-
-                    // Take the input from the file
                     while ((s1 = br.readLine()) != null) {
                         sl = sl + "\n" + s1;
                     }
-
-                    // Set the text
                     t.setText(sl);
                     br.close();
                 } catch (Exception evt) {
@@ -172,6 +165,8 @@ class editor extends JFrame implements ActionListener {
             t.setText("");
         } else if (s.equals("close")) {
             f.setVisible(false);
+            f.dispose();
+            System.exit(0);
         }
 
     }
