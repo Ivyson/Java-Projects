@@ -1,38 +1,21 @@
-
-// Java Program to create a text editor using java
-import java.awt.*;
 import javax.swing.*;
 import java.io.*;
 import java.awt.event.*;
 import javax.swing.plaf.metal.*;
-import javax.swing.text.*;
 
 class editor extends JFrame implements ActionListener {
-    // Text component
     JTextArea t;
-
-    // Frame
     JFrame f;
-
-    // Constructor
     editor() {
-        // Create a frame
         f = new JFrame("editor");
         ImageIcon icon =new ImageIcon("Images/notepad.png");
         f.setIconImage(icon.getImage());
-
         try {
-            // Set metal look and feel
             UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-
-            // Set theme to ocean
             MetalLookAndFeel.setCurrentTheme(new OceanTheme());
         } catch (Exception e) {
         }
-
-        // Text component
         t = new JTextArea();
-
         // Create a menubar
         JMenuBar mb = new JMenuBar();
         JMenu m1 = new JMenu("File");
@@ -40,7 +23,6 @@ class editor extends JFrame implements ActionListener {
         JMenuItem mi2 = new JMenuItem("Open");
         JMenuItem mi3 = new JMenuItem("Save");
         JMenuItem mi9 = new JMenuItem("Print");
-
         // Add action listener
         mi1.addActionListener(this);
         mi2.addActionListener(this);
@@ -54,8 +36,6 @@ class editor extends JFrame implements ActionListener {
 
         // Create amenu for menu
         JMenu m2 = new JMenu("Edit");
-
-        // Create menu items
         JMenuItem mi4 = new JMenuItem("cut");
         JMenuItem mi5 = new JMenuItem("copy");
         JMenuItem mi6 = new JMenuItem("paste");
@@ -119,6 +99,7 @@ class editor extends JFrame implements ActionListener {
                     w.close();
                 } catch (Exception evt) {
                     JOptionPane.showMessageDialog(f, evt.getMessage());
+                    
                 }
             }
             // If the user cancelled the operation
@@ -133,13 +114,10 @@ class editor extends JFrame implements ActionListener {
             }
         } else if (s.equals("Open")) {
             // Create an object of JFileChooser class
-            JFileChooser j = new JFileChooser("f:");
-
-            // Invoke the showsOpenDialog function to show the save dialog
+            JFileChooser j = new JFileChooser("C:\\Users\\Sam\\OneDrive\\Documents\\GitHub\\Java-Projects");
             int r = j.showOpenDialog(null);
-
-            // If the user selects a file
-            if (r == JFileChooser.APPROVE_OPTION) {
+            if (r == JFileChooser.APPROVE_OPTION) 
+             {
                 // Set the label to the path of the selected directory
                 File fi = new File(j.getSelectedFile().getAbsolutePath());
 
@@ -164,14 +142,14 @@ class editor extends JFrame implements ActionListener {
         } else if (s.equals("New")) {
             t.setText("");
         } else if (s.equals("close")) {
-            f.setVisible(false);
             f.dispose();
+
             System.exit(0);
         }
 
     }
 
     public static void main(String args[]) {
-        editor e = new editor();
+     new editor();
     }
 }
